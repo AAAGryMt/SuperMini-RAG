@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+
+# Env file
+.env
+
+# Mac
+.DS_Store
+
+# Chroma data
+vector_store/
