@@ -2,7 +2,7 @@
 from langchain_chroma import Chroma
 
 # 项目内模块
-import config_data as config 
+import config as config 
 
 
 # 向量存储服务：负责初始化 Chroma 并提供统一检索入口
