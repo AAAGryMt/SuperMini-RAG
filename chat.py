@@ -3,7 +3,7 @@ import streamlit as st
 
 # 项目内模块
 from rag import RagService
-import config_data as config
+import config as config
 
 
 # 页面基础信息

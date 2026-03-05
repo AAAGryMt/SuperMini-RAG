@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "supermini-rag"
+version = "0.1.0"
+description = "A minimal RAG system based on LangChain + Chroma"
+readme = "README.md"
+requires-python = ">=3.10"
+
+dependencies = [
+    "streamlit>=1.30.0",
+    "python-dotenv>=1.0.0",
+    "langchain-core>=0.2.0",
+    "langchain-community>=0.2.0",
+    "langchain-chroma>=0.1.0",
+    "langchain-text-splitters>=0.2.0",
+    "chromadb>=0.4.24",
+    "dashscope>=1.14.0"
+]
+
+authors = [
+    {name = "AAAGryMt"}
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "black",
+    "ruff"
+]
+
+[tool.uv]
+package = false
+

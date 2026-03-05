@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 import os
 
 # 项目配置
-import config_data as config
+import config as config
 
 
 load_dotenv()

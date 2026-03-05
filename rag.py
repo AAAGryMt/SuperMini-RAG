@@ -11,7 +11,7 @@ import os
 
 # 项目内模块
 from vector_store import VectorStoreService
-import config_data as config
+import config as config
 from file_history_store import get_history
 
 
