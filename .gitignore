@@ -1,13 +1,20 @@
 # Python
 __pycache__/
-*.pyc
+*.py[cod]
+*.pyo
+*.pyd
+.Python
 venv/
+.venv/
+
 
 # Env file
 .env
 
-# Mac
+# MacOS
 .DS_Store
 
-# Chroma data
-vector_store/
+# Project runtime data
+chroma_db/
+chat_history/
+md5.text
