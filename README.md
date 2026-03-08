@@ -1,6 +1,6 @@
 # SuperMiniRAG
 
-一个基于 **LangChain + Chroma + 通义千问 + Streamlit** 构建的极简 RAG（Retrieval-Augmented Generation）问答系统，用于对本地知识库进行检索增强问答。
+一个基于 **LangChain + Chroma + OpenAI-compatible API + Streamlit** 构建的极简 RAG（Retrieval-Augmented Generation）问答系统，用于对本地知识库进行检索增强问答。
 
 ## 项目简介
 
@@ -18,7 +18,7 @@ SuperMiniRAG 是一个轻量级本地知识问答系统，支持：
 - 文本切分（Chunk 切分）
 - 向量数据库构建（Chroma）
 - 语义相似度检索
-- 基于通义千问的生成式问答
+- 基于 OpenAI-compatible API 的生成式问答
 - Streamlit 可视化界面
 
 ## 快速开始
@@ -48,8 +48,9 @@ pip install -r requirements.txt
 
 创建 `.env` 文件：
 
-```
-DASHSCOPE_API_KEY=your_api_key
+```bash
+OPENAI_API_KEY=your_api_key
+BASE_URL=your_api_base_url
 ```
 
 ### 5.启动项目
@@ -98,7 +99,7 @@ SuperMiniRAG/
 
 ### 生成能力
 
-- 完全依赖通义千问
+- 完全依赖单一 OpenAI-compatible 模型
 - 不支持多模型调度
 
 ### 工程能力
