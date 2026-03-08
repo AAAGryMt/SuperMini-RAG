@@ -2,7 +2,7 @@
 md5_path = "./md5.text"
 
 # chroma
-chroma_name = "mini-rag"
+chroma_name = "supermini-rag"
 persist_directory = "./chroma_db"
 
 
@@ -18,8 +18,8 @@ similarity_threshold = 2
 
 
 # model
-embedding_model = "text-embedding-v4"
-chat_model = "qwen3-max"
+embedding_model = "Qwen/Qwen3-Embedding-8B"
+chat_model = "deepseek-ai/DeepSeek-V3.2"
 
 
 # 会话配置

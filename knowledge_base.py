@@ -72,7 +72,7 @@ class KnowledgeBaseService:
             collection_name=config.chroma_name,
             embedding_function=OpenAIEmbeddings(
                 model = config.embedding_model,
-                dashscope_api_key = os.getenv("OPENAI_API_KEY"),
+                api_key = os.getenv("OPENAI_API_KEY"),
                 base_url=os.getenv("BASE_URL")
                 ),
             persist_directory = config.persist_directory
