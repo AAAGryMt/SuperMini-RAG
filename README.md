@@ -23,28 +23,21 @@ SuperMiniRAG 是一个轻量级本地知识问答系统，支持：
 
 ## 快速开始
 
-### 1.克隆项目
+### 1. 克隆项目
 
 ```bash
 git clone https://github.com/AAAGryMt/SuperMini-RAG.git
-cd SuperMiniRAG
+cd SuperMini-RAG
 ```
 
-### 2.创建虚拟环境
+### 2. 使用 uv 创建并同步环境
 
 ```bash
-python -m venv venv
-source venv/bin/activate  # macOS / Linux
-venv\Scripts\activate     # Windows
+uv venv
+uv sync
 ```
 
-### 3.安装依赖
-
-```bash
-pip install -r requirements.txt
-```
-
-### 4.配置环境变量
+### 3. 配置环境变量
 
 创建 `.env` 文件：
 
@@ -53,34 +46,25 @@ OPENAI_API_KEY=your_api_key
 BASE_URL=your_api_base_url
 ```
 
-### 5.启动项目
-
-1. 在此上传 txt 文件加入本地知识库
+### 4. 启动项目
 
 ```bash
-streamlit run app_file_uploader.py
-```
-
-2. 进入聊天界面
-
-```bash
-streamlit run chat.py
+uv run streamlit run start.py
 ```
 
 ## 项目结构
 
 ```bash
-SuperMiniRAG/
-├── chat.py                  # Streamlit 对话入口：承载聊天 UI，调用 RAG 链并流式输出
-├── app_file_uploader.py     # Streamlit 知识库管理入口：上传 txt 并写入向量库
-├── rag.py                   # RAG 编排层：组装“检索 + Prompt + 模型 + 会话历史”主链
+SuperMini-RAG/
+├── start.py                 # Streamlit 入口：左侧知识库上传，右侧对话问答
+├── rag.py                   # RAG 编排层：检索 + Prompt + 模型 + 历史会话
 ├── knowledge_base.py        # 知识入库层：文本去重、切分、向量化写入 Chroma
-├── vector_store.py          # 检索适配层：封装 Chroma retriever 及检索参数
-├── file_history_store.py    # 会话持久化层：按 session_id 将消息历史落盘到本地文件
-├── config_data.py           # 全局配置中心：模型名、切分参数、向量库路径、会话配置
-├── requirements.txt         # Python 依赖清单
-├── .gitignore               # Git 忽略规则
-└── .env                     # 本地环境变量
+├── vector_store.py          # 检索适配层：封装 Chroma retriever
+├── file_history_store.py    # 会话持久化层：按 session_id 存取历史消息
+├── config.py                # 全局配置中心：模型名、切分参数、会话配置等
+├── pyproject.toml           # 项目依赖与元信息
+├── uv.lock                  # uv 锁文件（精确依赖快照）
+└── .env.example             # 环境变量模板
 ```
 
 ## 能力边界
