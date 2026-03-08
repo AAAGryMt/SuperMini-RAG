@@ -4,7 +4,7 @@ from datetime import datetime
 
 # LangChain 组件：向量库、Embedding 与文本切分
 from langchain_chroma import Chroma
-from langchain_community.embeddings import DashScopeEmbeddings
+from langchain_community.embeddings import OpenAIEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 # 环境变量加载
@@ -70,9 +70,10 @@ class KnowledgeBaseService:
         # 初始化 Chroma 向量库（含 embedding 函数）
         self.chroma = Chroma(
             collection_name=config.chroma_name,
-            embedding_function=DashScopeEmbeddings(
-                model = "text-embedding-v4",
-                dashscope_api_key = os.getenv("DASHSCOPE_API_KEY")
+            embedding_function=OpenAIEmbeddings(
+                model = config.embedding_model,
+                dashscope_api_key = os.getenv("OPENAI_API_KEY"),
+                base_url=os.getenv("BASE_URL")
                 ),
             persist_directory = config.persist_directory
         )

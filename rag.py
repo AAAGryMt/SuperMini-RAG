@@ -1,6 +1,6 @@
 # 模型与链路组件
-from langchain_community.embeddings import DashScopeEmbeddings
-from langchain_community.chat_models import ChatTongyi
+from langchain_community.embeddings import OpenAIEmbeddings
+from langchain_community.chat_models import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate,MessagesPlaceholder
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnableWithMessageHistory,RunnableLambda
@@ -25,9 +25,10 @@ class RagService:
 
         # 初始化向量检索服务
         self.vector_store = VectorStoreService(
-            embedding=DashScopeEmbeddings(
-                model = config.embedding_model_name,
-                dashscope_api_key = os.getenv("DASHSCOPE_API_KEY")
+            embedding=OpenAIEmbeddings(
+                model = config.embedding_model,
+                api_key = os.getenv("OPENAI_API_KEY"),
+                base_url = os.getenv("BASE_URL")
             )
         )
 
@@ -43,9 +44,10 @@ class RagService:
         )
 
         # 初始化对话模型
-        self.chat_model= ChatTongyi(
+        self.chat_model= ChatOpenAI(
             model = config.chat_model,
-            api_key = os.getenv("DASHSCOPE_API_KEY") 
+            api_key = os.getenv("OPENAI_API_KEY"),
+            base_url = os.getenv("BASE_URL")
         )
 
         # 构建可调用链

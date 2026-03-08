@@ -18,7 +18,7 @@ similarity_threshold = 2
 
 
 # model
-embedding_model_name = "text-embedding-v4"
+embedding_model = "text-embedding-v4"
 chat_model = "qwen3-max"
 
 
